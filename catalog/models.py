@@ -6,7 +6,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailsearch import index
 
 
-class BlogIndexPage(Page):
+class CatalogIndexPage(Page):
     intro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -14,9 +14,10 @@ class BlogIndexPage(Page):
     ]
 
 
-class BlogPage(Page):
+class ManufacturerPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
+    img = RichTextField(blank=True)
     body = RichTextField(blank=True)
 
     search_fields = Page.search_fields + [
@@ -29,3 +30,4 @@ class BlogPage(Page):
         FieldPanel('intro'),
         FieldPanel('body', classname="full"),
     ]
+
