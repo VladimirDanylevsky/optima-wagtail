@@ -4,5 +4,11 @@
 
 {% block body_class %}template-homepage{% endblock %}
     {% block content %}
+        {% for  pages in catalog_pages %}
+            {% with pages=pages.specific %}
+                <h2><a href="{% pageurl pages %}">{{ pages.title }}</a></h2>
+                {{ pages.intro | richtext}}
+            {% endwith %}
+        {% endfor %}
         {{ page.body|richtext }}
     {% endblock %}
